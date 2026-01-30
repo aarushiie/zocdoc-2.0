@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Confirm Appointment</h2>
+<p>Consultation Fee: ₹<span id="fee"></span></p>
+<button onclick="pay()">Pay & Book</button>
+
+<script>
+document.getElementById("fee").innerText = localStorage.getItem("fee");
+
+function pay() {
+  fetch("/book", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      doctorId: localStorage.getItem("doctorId"),
+      amount: localStorage.getItem("fee")
+    })
+  })
+  .then(res => res.json())
+  .then(data => alert(data.message));
+}
+</script>
+</body>
+</html>
