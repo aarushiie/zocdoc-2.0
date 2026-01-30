@@ -1,1 +1,19 @@
-bashhhhhhhhhh
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zocdoc 2.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Find Doctors Near You</h2>
+  <input id="location" placeholder="Enter city" />
+  <button onclick="go()">Search</button>
+
+  <script>
+    function go() {
+      localStorage.setItem("location", location.value);
+      window.location.href = "doctors.html";
+    }
+  </script>
+</body>
+</html>
